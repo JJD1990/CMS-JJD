@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= current_page.seo_title %></title>
+    <meta name="description" content="<%= current_page.description %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Stylesheets -->
+    <%= stylesheet_link_tag "inter-font" %>
+    <%# stylesheet_link_tag "tailwind" %>
+    
+    <%= csrf_meta_tags %>
+    
+    <%= turbo_include_tags %>
+    <%# stimulus_include_tags %>
+  </head>
+  
+  <body>
+    <%= render 'my_theme/shared/header' %>
+    
+    <div class="mx-auto max-w-screen-lg py-4 md:py-20 px-4">
+      <%= yield %>
+    </div>
+  </body>
+</html>

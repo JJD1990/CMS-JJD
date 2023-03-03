@@ -1,0 +1,21 @@
+<div class="mb-3 md:mb-12 prose">
+  <%= content.html :body %>
+</div>
+
+<ul>
+  <% articles.each do |article| %>
+    <li>
+      <%= link_to article.materialized_path, class: "py-3 block hover:bg-gray-50 -mx-4 px-4 md:rounded-lg" do %>
+        <span class="font-extrabold text-lg">
+          <%= article.title %>
+        </span>
+        <div class="text-sm">
+          <%= strip_tags article.description.to_s.truncate(150) %>
+        </div>
+        <div class="text-xs mt-1 text-gray-400">
+          <%=l article.created_at, format: "%B %e, %Y" %>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
